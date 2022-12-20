@@ -1,0 +1,115 @@
+*{
+    padding: o;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    transition: all .3s ease-in-out;
+    background-color: var(--bg-color);
+}
+hr{
+    background-color: var(--divisor-color);
+    height: var(--divisor-size);
+    border: none;
+}
+
+body.dark .dark-mode{
+    background-color: #fff;
+    color: #070707;
+    border: 2px solid #070707;
+}
+.dark-mode{
+    z-index: 3;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 20px;
+    background-color: #070707;
+    color: #fff;
+    font-size: 14px;
+    font-family: var(--font);
+    font-weight: 700;
+    text-align: center;
+    transition: .8s all linear;
+    border: none;
+    cursor: pointer;
+}
+
+::selection{
+    background-color: var(--selection-bg);
+    color: var(--selection-color);
+}
+.unselectable {
+    pointer-events: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  input, textarea{
+    margin-top: 20px;
+    padding: 20px;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: var(--input-bg);
+    border-radius: 2px;
+    color: var(--input-color);
+    font-family: var(--font);
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+  }
+  .counter{
+    float: right;
+    margin-top: 5px;
+    font-size: .7rem;
+    font-family: var(--font);
+  }
+  .list{
+    padding: 30px;
+    background-color: var(--blog-content-bg);
+  }
+
+.alert-parent{
+    width: 100%;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+}
+.alert-parent .alert.active{
+    opacity: 1;
+    width: 100%;
+}
+.alert{
+    width: 0;
+    opacity: 0;
+    padding: 15px 20px;
+    border-radius: 3px;
+    font-family: var(--font);
+    font-size: .9rem;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: capitalize;
+    color: var(--alert-color);
+    background-color: var(--alert-bg);
+    transition: all .8s linear;
+    display: none;
+}
+.alert.error{
+    color: var(--alert-error-color);
+    background-color: var(--alert-error-bg);
+}
+.alert.info{
+    color: var(--alert-info-color);
+    background-color: var(--alert-info-bg);
+}
+.alert.success{
+    color: var(--alert-success-color);
+    background-color: var(--alert-success-bg);
+}

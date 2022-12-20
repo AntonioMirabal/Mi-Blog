@@ -1,0 +1,62 @@
+<div class="alert-parent">
+    <div id="alert" class="alert">
+    </div>
+</div>
+
+<div class="newletter">
+    <p class="proporsal">Gracias por Visitar el Sitio.</p>
+    <p class="minus">La cima no se alcanza superando a los demas si no superandote a ti mismo.</p>
+    <ul class="social-links">
+        <li class="social-link"><a href="#">Facebook</a></li>
+        <li class="social-link"><a href="#">Youtube</a></li>
+        <li class="social-link"><a href="#">Telegram</a></li>
+        <li class="social-link"><a href="#">Gmail</a></li>
+        <li class="social-link"><a href="#">Github</a></li>
+    </ul>
+    <p class="disclaimer">Todos los recursos aqui utilizados son propiedad de sus respectivos dueños si algo inclumple las normas de derecho de autor o quiere levantar algun reclamo por el uso de su recurso con derecho de autor or favor envienos un correo o contactenos por nuestras redes sociales.</p>
+</div>
+<footer>
+    <p class="copyright">&copy; 2022, <a href="http://creativecommons.org/" target="_blank">ByteLost</a>
+        , Mi Blog.</p>
+</footer>
+
+<script src="/js/scroll-lock.min.js"></script>
+<script>
+    const alert = document.getElementById('alert');
+
+    const isEntrance = localStorage.getItem("entrance");
+
+    if(!isEntrance){
+        showAlert("info", "Este es un sitio temporal en lo que consigo para pagar un hosting mas decente :) por lo que todos los blogs se pueden perder en un futuro.", 15);
+        localStorage.setItem("entrance",true);
+    }
+    function showAlert(type = "", msg, seconds = 3){
+        alert.style.display = "block";
+        alert.innerHTML = msg;
+        if(type){
+            alert.classList.add(type);
+        }
+        alert.classList.add('active');
+        setTimeout(()=>{
+            alert.classList.remove('active');
+            if(type){
+                alert.classList.remove(type);
+            }
+            setTimeout(()=>{
+                alert.style.display = "none";
+            },1200 * seconds);
+        },1000 * seconds);
+    }
+</script>
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+    const loader = document.getElementById("loader");
+    scrollLock.disablePageScroll();
+
+    window.addEventListener("load", () => {
+        loader.style.display = "none";
+        scrollLock.enablePageScroll();
+    });
+
+</script>

@@ -1,0 +1,65 @@
+<div class="profile">
+    <div class="card">
+    <div class="profile-image">
+        <div class="image">
+            <img src="https://raw.githubusercontent.com/ByteLost/Mi-Portafolio/main/res/avatar.jpg" alt="ByteLost logo">
+          </div>
+    </div>
+       <div class="content">
+        <div class="details">
+            <p class="author">ByteLost</p>
+            <div class="layout">
+            <p class="message">Hola soy Antonio y soy el creador de este sitio es un gusto tenerte aqui... sabes creo que con tu ayuda podemos lograr cosas mejores ya se Te interesaria comprarme un cafe.</p>
+            <div class="buttons">
+                <button><a href="https://github.com/ByteLost">Ir a Github</a></button>
+                <button><a href="https://ko-fi.com/mirabal">Comprar un cafe</a></button>
+            </div>
+            </div>
+        </div>
+       </div>
+    </div>
+</div>
+
+<div class="prev-next">
+    <div class="buttons">
+        <% if (data.prev) { %>
+            <a class="link" href=<%= "/blog/" + data.prev.slug %> >
+                <p class="head">Anterior</p>
+                <p class="name"><%= data.prev.title %> </p>
+            </a>
+        <% } %>
+        <% if (data.next) { %>
+            <a class="link" href=<%= "/blog/" + data.next.slug %> >
+                <p class="head">Siguiente</p>
+                <p class="name"><%= data.next.title %> </p>
+            </a>
+        <% } %>
+    </div>
+</div>
+
+<div class="comments-wrap">
+    <div class="comments">
+        <h3><%= comments.count %></h3>
+      <%- comments.commentList  %>
+    </div>
+    <div class="respond">
+        <h3>Agregar Comentario</h3>
+        <p>Su direccion de correo electronico no sera publicada.</p>
+        <div class="data">
+            <div class="inline">
+                <input id="name-input" placeholder="Nombre de Usuario" value="" type="text">
+            </div>
+            <div class="inline">
+                <input id="email-input" placeholder="Correo Electronico" value="" type="email">
+            </div>
+            <div class="block">
+                <input id="web-input" placeholder="Sitio Web" value="" type="text">
+            </div>
+            <div class="block">
+                <textarea id="message-input" placeholder="Tu Comentario" data-limit="500"></textarea>
+                <p id="counter" class="counter">0/0</p>
+            </div>
+            <button id="send-comment">Agregar Comentario</button>
+        </div>
+    </div>
+</div>

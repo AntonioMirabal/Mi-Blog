@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="mobileOptimized" content="width">
+    <meta name="copyright" content="Mi Blog ByteLost">
+    <meta name="pagename" content="Mi Blog ByteLost">
+    <meta name="aplication-name" content="Mi Blog ByteLost">
+    <meta name="owner" content="MI Blog ByteLost">
+
+    <meta name="distribution" content="global">
+    <meta name="resource-type" content="article">
+    <meta name="rating" content="general">
+    <meta name="medium" content="blog">
+    <meta name="citation_author" content="Antonio Mirabal">
+
+    <meta name="ia_archiver" content="all">
+    <meta name="mozilla2.0" content="index follow">
+    <meta name="author" content="Antonio Mirabal">
+    <meta name="robots" content="index, all, follow">
+    <meta name="googlebot" content="index, all, follow">
+    <meta name="yahoobot" content="index, all, follow">
+    <meta name="msnbot" content="index, all, follow">
+    <meta name="MSNBOT0.XX" content="index, follow">
+    <meta name="yahoo-slurp" content="index, all, follow">
+    <meta name="googlebot-image" content="all">
+
+    <meta name="category" content=<%= data.category %> >
+    <meta name="description" content=<%= data.description %> >
+    <meta name="keywords" content=<%= data.tags %> >
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content=<%= data.title %> >
+    <meta property="twitter:title" content=<%= data.title %> >
+    <meta property="og:description" content=<%= data.description %> >
+    <meta property="twitter:description" content=<%= data.description %> >
+    <meta name="twitter:description" content=<%= data.description %> >
+    <meta name="DC.description" content=<%= data.description %> >
+    <meta name="dcterms:description" content=<%= data.description %> >
+    <meta property="og:image" content=<%= data.banner %> >
+    <meta property="twitter:image" content=<%= data.banner %> >
+    <meta property="og:image:secure_url" content=<%= data.banner %> >
+    <meta name="twitter:image:src" content=<%= data.banner %> >
+    <meta name="twitter:image" content=<%= data.banner %> >
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="380">
+    <meta property="og:image:alt" content=<%= data.title %> >
+    <meta property="og:updated_time" content=<%= data.updated_at %> >
+    <meta property="article:modified_time" content=<%= data.updated_at %> >
+    
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title><%= data.title %></title>
+    <%- include('../meta') %>
+    <link rel="stylesheet" href="/css/blogs.css"/>
+    <link rel="stylesheet" href="/css/markdown.css" />
+    <link rel="stylesheet" href="/css/comments.css" />
+</head>
+<body>
+    <%- include('../navigation/topbar') %>
+
+    <div class="container">
+        <div class="content">
+            <div class="single-post-header">
+                <p id="users-live" class="prefix"></p>
+                <h1 class="post-title"><%= data.title + "." %></h1>
+            <div class="metadata">
+                <% if (data.tags.length > 0) { %>
+                <div class="tags-list">
+                    <i class="fi fi-rr-tags"></i>
+                    <%- tags %> 
+                </div>
+                <% } %>
+                <div class="post-meta">
+                    <p class="metadata-time"><i class="fi fi-rr-calendar-clock"></i><%= time.created %></p>
+                    <% if(time.updated != time.created) { %>
+                        <p class="metadata-time"><i class="fi fi-rr-clock-three"></i><%= time.updated %></p>
+                       <% } %>
+                </div>
+                <a href="../../category/<%= data.category %> " target="_blank" class="category"><% if (data.category != "mainly") { %>
+                    <i class="fi fi-rr-magic-wand"></i><%= data.category %>
+                <% } %></a>
+            </div>
+            </div> 
+            <% if (player.isVideo) { %>
+                <%- player.video %> 
+            <% } else { %>
+            <div class="banner-img">
+                <img src=<%= data.banner %>  alt=<%= data.slug %>  >
+            </div>
+            <% } %> 
+            <div class="post-meta">
+                <p class="description"><%= data.description %></p>
+            </div>
+        </div>
+        <div class="markdown-body">
+            <%- content %>
+        </div>
+    </div>
+
+    <%- include('../footer/comments') %> 
+    <%- include('../footer/footer') %> 
+
+    <script defer src="/js/dark-mode.js"> </script>
+    <%- "<script> const __DATAID = " + "\"" + data.id + "\"" + "</script>"%>
+    <script defer src="/js/blog.js"> </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %>  - Mi Blog</title>
+    <%- include('./meta') %>
+    <link rel="stylesheet" href="/css/page.css">
+</head>
+<body>
+    <%- include('./navigation/topbar') %>
+
+    <div class="box-container">
+        <div class="box">
+            <p class="title"><%= title %></p>
+            <p class="desc"><%= msg %> </p>
+        </div>
+        <div class="scrolling"><i class="fi fi-rr-mouse"></i><span>Scroll</span></div>
+    </div>
+
+    <%- list %> 
+    <%- include('./footer/footer') %> 
+
+    <script src="/js/dark-mode.js" ></script>
+</body>
+</html>

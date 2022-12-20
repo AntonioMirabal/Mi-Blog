@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="mobileOptimized" content="width">
+    <meta name="copyright" content="Mi Blog ByteLost">
+    <meta name="pagename" content="Mi Blog ByteLost">
+    <meta name="aplication-name" content="Mi Blog ByteLost">
+    <meta name="owner" content="MI Blog ByteLost">
+
+    <meta name="distribution" content="global">
+    <meta name="resource-type" content="article">
+    <meta name="rating" content="general">
+    <meta name="medium" content="blog">
+    <meta name="citation_author" content="Antonio Mirabal">
+
+    <meta name="ia_archiver" content="all">
+    <meta name="mozilla2.0" content="index follow">
+    <meta name="author" content="Antonio Mirabal">
+    <meta name="robots" content="index, all, follow">
+    <meta name="googlebot" content="index, all, follow">
+    <meta name="yahoobot" content="index, all, follow">
+    <meta name="msnbot" content="index, all, follow">
+    <meta name="MSNBOT0.XX" content="index, follow">
+    <meta name="yahoo-slurp" content="index, all, follow">
+    <meta name="googlebot-image" content="all">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= filter %>  - Mi Blog</title>
+    <%- include('./meta') %>
+    <link rel="stylesheet" href="/css/page.css">
+</head>
+<body>
+    <%- include('./navigation/topbar') %>
+
+    <div class="box-container">
+        <div class="box">
+            <p class="prefix"><%= count %> Blog En total.</p>
+            <p class="title"><%= filter %></p>
+            <p class="desc">Estos son los blogs de <%= filter %> que encontramos para ti.</p>
+        </div>
+        <div class="scrolling"><i class="fi fi-rr-mouse"></i><span>Scroll</span></div>
+    </div>
+
+    <%- blogs %>
+    <%- include('./footer/footer') %> 
+
+    <script src="/js/dark-mode.js" ></script>
+</body>
+</html>

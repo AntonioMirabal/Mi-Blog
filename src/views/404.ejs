@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> </title>
+    <%- include('./meta') %>
+    <style>
+        body .error{
+            margin-top: 70px;
+            margin-bottom: 70px;
+            background-color: var(--section-bg);
+            text-align: center;
+            font-family: var(--formal-font);
+            font-weight: 700;
+            padding: 50px;
+            overflow: hidden;
+            color: var(--section-color);
+        }
+
+        body .error img{
+            width: 100%;
+            height: auto;
+            margin-left: 30px;
+            margin-right: 30px;
+            border-radius: 20px;
+            object-fit: contain;
+            border: 2px solid #070707;
+            box-shadow: 15px 20px 0px #070707;
+        }
+
+        body .error h1{
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <%- include('./navigation/topbar') %>
+
+    <div class="error">
+        <img src="<%= image %> " alt="Not Data Found" />
+        <h1><%= title %> </h1>
+        <p><%= message %> </p>
+        <p>
+    </div>
+
+    <%- include('./footer/footer') %> 
+
+    <script src="/js/dark-mode.js" ></script>
+</body>
+</html>

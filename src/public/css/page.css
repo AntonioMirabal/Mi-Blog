@@ -1,0 +1,151 @@
+.topbar .topbar-title{
+    color: var(--topbar-scroll-color);
+}
+.box-container{
+    position: relative;
+    width: 100%;
+    max-height: 100vh;
+    background-color: var(--blog-content-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box-container .box{
+    background-color: var(--box-bg);
+    padding: 20px;
+    margin: 30px;
+    overflow: hidden;
+}
+.box-container .box .prefix{
+    text-transform: uppercase;
+    font-size: .7rem;
+    font-family: var(--font);
+    font-weight: 400;
+    color: var(--text-color);
+    letter-spacing: .01em;
+    text-align: center;
+}
+.box-container .box .title{
+    --multipler: 1;
+    text-transform: capitalize;
+    font-size: calc(3.88rem * var(--multipler));
+    font-family: var(---formal-font);
+    font-weight: 800;
+    text-align: center;
+    color: var(--box-color);
+}
+.box-container .box .desc{
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-family: var(--font);
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-gray);
+    margin-top: 20px;
+}
+.box-container .scrolling{
+    position: absolute;
+    right: -70px;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    gap: .5em;
+    align-items: center;
+    transition: transform 1s ease-in-out;
+    transform-origin: left bottom;
+    transform: rotate(-90deg);
+}
+.box-container .scrolling i{
+    transform: rotate(-270deg);
+    font-size: .9rem;
+    color: var(--text-color);
+}
+.box-container .scrolling span{
+    text-transform: uppercase;
+    font-size: .6rem;
+    letter-spacing: .3em;
+    font-family: var(--font);
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-color);
+}
+.bricks{
+    background-color: var(--blog-content-bg);
+    padding: 2.8em;
+    columns: 3 320px;
+}
+
+.bricks .brick{
+    max-width: 100%;
+    overflow: hidden;
+}
+.bricks .brick.entry{
+    padding: 1.4em 1.4em;
+    break-inside: avoid;
+}
+.bricks .brick.thumb{
+    overflow: hidden;
+    height: auto;
+}
+.bricks .brick.thumb img{
+    vertical-align: bottom;
+    max-width: 100%;
+    object-fit: cover;
+}
+.bricks .brick.text{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.bricks .brick.text .updated-text{
+    text-transform: uppercase;
+    font-size: .7rem;
+    font-family: var(--font);
+    font-weight: 400;
+    color: var(--text-gray);
+    letter-spacing: .2em;
+}
+.bricks .brick.text .title-text{
+    text-transform: capitalize;
+    font-size: 2rem;
+    font-family: var(--formal-font);
+    font-weight: 400;
+    color: var(--title-color);
+    margin-top: 20px;
+}
+.bricks .brick.text .description-text{
+    font-size: 0.9rem;
+    font-family: var(--font);
+    font-weight: 400;
+    color: var(--text-color);
+    letter-spacing: .01em;
+    margin-top: 20px;
+    margin-bottom: 24px;
+}
+.bricks .brick.text .read-more{
+    text-transform: uppercase;
+    font-size: .7rem;
+    font-family: var(--font);
+    font-weight: 400;
+    color: var(--text-color);
+    letter-spacing: .01em;
+    text-decoration: none;
+}
+.filter{
+    display: none;
+}
+@media only screen and (max-width: 767px) {
+    .bricks{
+        padding: 70px 10px 70px 10px;
+    }
+    .box-container .box .title{
+        --multipler: .9;
+    }
+}
+@media only screen and (max-width: 340px) {
+    .box-container .box{
+        padding: 10px;
+    }
+    .box-container .box .title{
+        --multipler: .7;
+    }
+}

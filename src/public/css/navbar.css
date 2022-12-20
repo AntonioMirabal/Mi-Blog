@@ -1,0 +1,199 @@
+.topbar{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--navbar-size);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 27px 40px 27px;
+    z-index: 3;
+    transition: all .5s linear;
+    background-color: var(--topbar-bg);
+}
+.topbar.scroll{
+    position: fixed;
+    background-color: rgba(0,0,0,.06);
+    backdrop-filter: blur(10px);
+}
+.topbar .topbar-nav{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    width: 100%;
+}
+.topbar .topbar-nav .nav-item{
+    padding: 10px;
+    cursor: pointer;
+    transition: border-bottom .1s linear;
+}
+.topbar .topbar-nav .nav-item a{
+    text-align: center;
+    font-family: var(--formal-font);
+    font-size: var(--nav-item-text-size);
+    font-weight: var(--nav-item-text-weight);
+    color: var(--nav-item-color);
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.topbar .topbar-nav .nav-item:hover{
+    border-bottom: 2px solid var(--nav-item-color);
+}
+
+.topbar .topbar-title{
+    width: 100%;
+    font-family: var(--formal-font);
+    font-size: var(--nav-text-size);
+    font-weight: var(--nav-title-weight);
+    color: var(--topbar-color);
+    cursor: pointer;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    text-rendering: optimizeLegibility;
+}
+.topbar.scroll .topbar-title{
+    color: var(--topbar-scroll-color);
+}
+.topbar .buttons{
+    gap: .9rem;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    color: var(--nav-item-color);
+}
+.topbar .buttons div{
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.navigation{
+    width: 100vw;
+    height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index:4;
+    background-color: var(--nav-bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition-property: height padding;
+    transition-duration: .8s;
+}
+
+.navigation.active{
+    height: 100vh;
+    padding: 30px;
+}
+.navigation .heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation .heading .nav-heading{
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-family: var(--formal-font);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text-color);
+    text-align: left;
+}
+.navigation .heading #close-nav{
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+.items{
+    list-style: none;
+    counter-reset: ctr;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.items .item{
+    position: relative;
+}
+.items .item a{
+    font-family: var(---formal-font);
+    font-weight: 400;
+    color: var(--text-color);
+    font-size: 2rem; 
+    line-height: 1.6;
+    padding-left: 2.4rem;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.items .item::before{
+    content: counter(ctr, decimal-leading-zero);
+    counter-increment: ctr;
+    display: inline;
+    font-family: var(--font);
+    font-weight: 400;
+    font-size: .7rem;
+    color: var(--text-color);
+    transform: translateY(-50%);
+    position: absolute;
+    left: 0;
+    top: 1.8em;
+}
+
+.loader{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--blog-content-bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.loader div{
+    width: 10px;
+    height: 10px;
+    background-color: var(--text-color);
+    animation: loader-anim .6s infinite alternate;
+}
+.loader div:nth-child(2){
+    animation-delay: .2s;
+ }
+ .loader div:nth-child(3){
+     animation-delay: .4s;
+}
+
+@keyframes loader-anim {
+    to{
+        opacity: .1;
+        transform: translate3d(0, -1rem, 0);
+    }
+}
+/* responsive design phones screen sizes */
+
+@media only screen and (max-width: 767px) {
+    /* Navbar items hidden */
+    .topbar .topbar-nav{
+        display: none;
+    }
+    .topbar{
+        position: relative;
+    }
+    .topbar .topbar-title{
+        color: var(--topbar-scroll-color);
+    }
+    .topbar.scroll{
+        position: fixed;
+    }
+    .topbar.scroll .topbar-title{
+        color: var(--topbar-scroll-color);
+    }
+}
