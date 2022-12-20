@@ -71,9 +71,10 @@ sendCommentBtn.addEventListener('click', (e) => {
         const email = inputEmail.value;
         const web = inputWeb.value;
         const message = inputMessage.value;
-        localStorage.setItem("user", JSON.stringify({name,email,web}));
-        sendComment(name, email, web, message);
-        hiddenInputs(localStorage.getItem("user"));
+        if(sendComment(name, email, web, message)){
+            localStorage.setItem("user", JSON.stringify({name,email,web}));
+            hiddenInputs(localStorage.getItem("user"));
+        }
     }
 });
 
@@ -111,7 +112,9 @@ function sendComment(name, email, web, message){
          web: web,
          message: message
      });
+     return true;
     }
+    return false;
 }
 
 function hiddenInputs(user){
