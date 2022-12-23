@@ -1,0 +1,162 @@
+*,*::after,*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #1d1f3d;
+    min-width: 550px;
+    min-height:  100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body .shape-1{
+    height: 220px;
+    width: 220px;
+    border-radius: 50%;
+    position: absolute;
+    top: -100px;
+    right: -50px;
+    background-image: -o-linear-gradient(45deg, #0068a5, #7bacfc);
+    background-image: linear-gradient(45deg, #0068a5, #7bacfc);
+}
+body .shape-2{
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    z-index: -1;
+    background-image: -webkit-linear-gradient(linear, left top, right bottom, from(#ff0e72), to(#ff66a6));
+    background-image: -o-linear-gradient(top left, #ff0e72, #ff66a6);
+    background-image: linear-gradient(to bottom right, #ff0e72, #ff66a6);
+}
+.carbon{
+    border-radius: 10px;
+    font-family: monospace;
+    font-size: 12pt;
+    padding: 10px;
+    margin: 0 20px;
+    z-index: 10;
+    background-color: rgba(255,255,255 .6);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, .3);
+    overflow: auto;
+}
+.carbon .head{
+    width: 100%;
+    overflow: hidden;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 1px solid #CCC;
+}
+
+.carbon .head .leds{
+    display: flex;
+    gap: 7px;
+    list-style: none;
+}
+.carbon .head .leds li{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+}
+.carbon .head .leds li:nth-child(1){
+    background-color: #ef2b3e;
+}
+.carbon .head .leds li:nth-child(2){
+    background-color: #f5bd30;
+}
+.carbon .head .leds li:nth-child(3){
+    background-color: #2bef94;
+}
+.carbon .head .instance{
+    width: 100%;
+    text-align: center;
+    font-style: bold;
+    color: #FFF;
+}
+.terminal{
+    font-style: italic;
+    color:#CCC;
+    overflow: auto;
+    
+}
+.terminal .command{
+    color:#ebc034;
+}
+.terminal .no-animation{
+    color: #48fa92;
+}
+.terminal a{
+    color: rgb(52, 235, 235);
+    text-decoration: none;
+}
+.terminal p{
+    white-space: pre-wrap;
+
+}
+.terminal .message{
+    font-style: normal;
+}
+.terminal .error{
+    color: #ef2b3e;
+}
+.command{
+    width: 100%;
+    cursor: text;
+}
+.command textarea{
+    position: absolute;
+    left: -1000px;
+}
+.command #line{
+    display: flex;
+}
+.command #line::before{
+    content: "@HackingTerminal:~$";
+    color: #a630f5;
+    font-style: normal;
+    font-weight: bold;
+}
+.terminal .success{
+    color:#ebc034;
+}
+.terminal .data{
+    color:#30a6f5
+}
+.command #typer{
+    color: #30b3f5;
+    font-style: italic;
+    font-weight: bold;
+    margin-left: 3px;
+}
+.command textarea + #line .cursor{
+    width: 10px;
+    height: 15px;
+    background-color: transparent;
+    margin-left: 3px;
+    opacity: 1;
+    border: 1px solid #FFF;
+}
+br / br{
+display: none;
+}
+.command textarea:focus + #line .cursor{
+    background-color: #FFF;
+    animation: blink 1s linear infinite;
+}
+
+@keyframes typing{
+    from{ width: 0;}
+}
+@keyframes blink{
+    50%{
+        opacity: 0;
+    }
+}

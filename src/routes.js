@@ -9,6 +9,10 @@ router.get("/", (req, res) => {
      }).catch((err) => res.render('404',{image: "images/day-toolbox.svg", title: "Tuvimos un error.", message: "El blog no existe o no pudimos encontrarlo revisa que el ID del blog este bien escrito."}));
 });
 
+router.get("/terminal", (req, res) => {
+    res.sendFile("terminal.html",{ root: require('path').join(__dirname, "views")});
+});
+
 router.get("/blog", (req, res) => {
     api.getBlogs().then((resp) => {  
          res.render("blog",{count: resp.length, blogs: utils.addBlogs(resp)});

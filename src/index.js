@@ -27,6 +27,8 @@ io.on('connection', (socket) => {
 
     socket.on('enter:room', async(id) => {
         roomID = id;
+
+        
         socket.join(roomID);
         
         const sockets = await io.in(roomID).fetchSockets();

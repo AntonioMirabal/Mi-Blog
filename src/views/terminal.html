@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal</title>
+    <link rel="stylesheet" href="/css/terminal.css">
+</head>
+<body>
+    <div class="shape-1"></div>
+    <div class="shape-2"></div>
+  <div class="carbon">
+    <div class="head">
+        <ul class="leds">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <p id="instance" class="instance">Creating Instance...</p>
+    </div>
+    <div id="terminal" class="terminal">
+    </div>
+    <div id="command" class="command">
+        <textarea name="text" id="input" autofocus></textarea>
+        <div id="line">
+            <p id="typer"></p>
+            <div class="cursor"></div>
+        </div>
+    </div>
+  </div>
+
+    <script src="/js/input.js"></script>
+    <script src="/js/commands.js"></script>
+    <script src="/js/terminal.js"></script>
+    <script src="/js/traker.js"></script>
+</body>
+</html>
